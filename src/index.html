@@ -9,10 +9,107 @@
     <title>Calendar</title>
     <link
       rel="stylesheet"
-      href="styles/index.scss"
+      href="styles/style.scss"
     />
   </head>
   <body>
-    <h1>Calendar</h1>
+    <div class="calendar calendar--month-length-31 calendar--start-day-sun">
+      <div class="calendar__field">
+        <!-- 31 порожня комірка -->
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+        <div class="calendar__day"></div>
+      </div>
+    </div>
   </body>
 </html>
+
+<!-- # Календар
+
+Відобразити календар посередині екрана (як горизонтально, так і вертикально). Використовуйте SCSS та дотримуйтесь BEM. Не використовуйте Javascript.
+
+- Пишіть стилі в `src/styles/main.scss` замість `src/style.css`.
+- Створіть розмітку для блоку календаря з 31 днем всередині
+  - НЕ додавайте числа в HTML (ви зробите це за допомогою CSS)
+- Кожен день - це сірий (`#eee`) `100px` квадрат (включаючи чорну рамку 1px)
+  - Додайте число (`Arial 30px`) в центрі кожного дня, використовуючи `::before` та [@for](https://sass-lang.com/documentation/at-rules/control/for)
+- Використовуйте flex з відступом `1px` і обмежте його ширину рівно до 7 колонок + відступи `10px`.
+  - Не використовуйте жорстко закодовані значення `px`, якщо вони використовуються кілька разів
+  - Використовуйте правильно названі змінні, щоб зробити всі обчислення більш зрозумілими.
+- Реалізуйте модифікатор `start-day` для `calendar` зі значеннями `mon`, `tue`, `wed`, `thu`, `fri`, `sat` та `sun`
+  - Використовуйте [@each](https://sass-lang.com/documentation/at-rules/control/each) для створення всіх модифікаторів
+  - Місяць повинен починатися з правильного стовпчика (понеділок - 1-й, п'ятниця - 5-й)
+  - Ви можете просто додати правильний `margin-left` для першого дня
+  - Встановіть в HTML за замовчуванням відлік календаря з неділі
+- Додайте модифікатор `month-length` для `calendar` зі значеннями 28, 29, 30 і 31 (використовуйте `@for`)
+  - Встановлює останній день для показу (використовуйте [nth-child](https://css-tricks.com/how-nth-child-works/))
+  - Встановіть 31 день за замовчуванням у вашому HTML
+
+При наведенні курсору на комірку
+- курсор повинен стати вказівником
+- Комірка, на яку наведено курсор, має стати рожевою (використовуйте `#FFBFCB`)
+- Перемістіть комірку, на яку наведено курсор, вгору на `20px` (використовуйте `transform`)
+- Усі зміни мають бути анімаційними з тривалістю 0.5 с
+
+> Ось [Інструкція з виконання завдань верстки] (https://github.com/mate-academy/layout_task-guideline#how-to-solve-the-layout-tasks-on-github)
+
+*Важливе зауваження: У цьому завданні дозволяється посилати файли `*.scss` безпосередньо в тегах HTML `<link>` за допомогою атрибуту `href`.
+Це можливо, оскільки [ми використовуємо бібліотеку Parcel](https://en.parceljs.org/scss.html) для компонування вихідного коду вашого рішення.
+
+![Зображення для посилання](reference.png).
+
+## Контрольний список
+
+❗️ Замініть `<ваш_аккаунт>` на ваше ім'я користувача Github і скопіюйте посилання на опис `Pull Request`:
+
+- [ДЕМО ПОСИЛАННЯ](https://<ваш_аккаунт>.github.io/layout_calendar/)
+- [ПОСИЛАННЯ ТЕСТОВОГО ЗВІТУ](https://<ваш_аккаунт>.github.io/layout_calendar/report/html_report/)
+
+❗️ Скопіюйте цей `Checklist` в опис `Pull Request` після посилань і поставте `- [x]` перед кожним пунктом після того, як ви його перевірили.
+
+- [ ] Зміна модифікатора 'month-lengh' і 'start-day' в елементі коду
+відображається у зміні макета календаря
+- [ ] Кожен день не має модифікаторів, лише клас (наприклад, calendar__day)
+- [ ] Перевірено всі `Типові помилки` з теорії уроку `BEM`.
+- [ ] Код відповідає всім [Правилам стилю коду ❗️](https://mate-academy.github.io/layout_task-guideline/html-css-code-style-rules)
+У цьому документі пояснюється все, що вам потрібно для вирішення завдань GitHub Layout і відправки їх на рецензію.
+
+Щоб уникнути проблем з дозволами, НЕ розміщуйте папку з вашими проектами на Робочому столі.
+У шляху до неї не повинно бути пробілів, наприклад, C:\Users\Your Name\projects.
+Краще розміщувати сховища у D:\projects або C:\Users\YourName\projects у Windows, або /Users/YourName/projects у MacOS.
+Перед виконанням першого завдання на GitHub
+Підключіть GitHub до свого облікового запису Mate.
+
+Відкрийте сторінку свого профілю на платформі MA.
+Прокрутіть сторінку вниз і натисніть кнопку «Підключити» поруч з GitHub.
+Підтвердіть авторизацію в додатку Mate Academy.
+
+Translated with www.DeepL.com/Translator (free version) -->
