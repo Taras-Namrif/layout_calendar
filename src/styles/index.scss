@@ -1,4 +1,9 @@
-// Центрування
+// Скидання стилів
+* {
+  box-sizing: border-box;
+}
+
+// Центрування на весь екран
 body {
   margin: 0;
   display: flex;

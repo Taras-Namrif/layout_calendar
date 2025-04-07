@@ -1,15 +1,10 @@
 // Календар
 .calendar {
   display: flex;
-  justify-content: center;
-
-  &__field {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $cell-gap;
-    padding: $calendar-padding;
-    width: calc($columns * $cell-size + ($columns - 1) * $cell-gap);
-  }
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  gap: $cell-gap;
+  width: calc($columns * $cell-size + ($columns - 1) * $cell-gap);
 
   &__day {
     width: $cell-size;
@@ -23,16 +18,15 @@
     box-sizing: border-box;
     position: relative;
 
-
-
-    &:hover {
+    &__day:hover {
+      gap: $cell-gap;
       cursor: pointer;
       animation-duration: 0.5s;
-      background-color: $hover-color; // Колір фону при наведенні (рожевий)
-      transform: translateY(-20px); // Переміщення на 20px вгору
-     transition:
-      background-color 0.5s,
-      transform 0.5s;
+      background-color: $hover-color;
+      transform: translateY(-20px);
+      transition:
+        background-color 0.5s,
+        transform 0.5s;
     }
   }
 
@@ -43,6 +37,7 @@
       font-size: $font-size;
       font-family: Arial, sans-serif;
       position: absolute;
+      box-sizing: border-box;
     }
   }
 
